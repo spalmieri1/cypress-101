@@ -15,6 +15,10 @@ describe('Proposal Test', () => {
         cy.get('.u-no-border-right').type('32.50')
         cy.get('[data-test=submit-button]').click()
         cy.contains('Proposal successfully created')
+        cy.get('.proposal-card-actions-container > .overflow-menu > [data-test=overflow-menu-trigger]').click()
+        cy.get('.-type-warning').click()
+        cy.contains('Successfully deleted a proposal')
+
     })
 
 })
