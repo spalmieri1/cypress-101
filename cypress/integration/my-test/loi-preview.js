@@ -94,5 +94,7 @@ describe('LOI Preview Tests', () => {
         cy.contains('THIRTY-FIVE DOLLARS ($35.00) PER RENTABLE SQUARE FOOT PER MONTH')
         cy.contains('thirty-five dollars ($35.00) per rentable square foot per month')
         cy.contains('$35.00 /sf/mo')  
+        Hello
+        
     })
 })
