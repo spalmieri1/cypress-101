@@ -6,7 +6,7 @@ describe('LOI Preview Tests', () => {
         cy.login('super-beta@vts.com', 'P0t@t0th3D0g')
     })
 
-    it('Opening an LOI with no template selected', () => {
+    it('Opening a proposal with no template selected', () => {
         cy.visit("https://acceptance.vts.com/lease/deals/2567961")
         cy.get('[data-test=deal-profile-tabs] > .Tabs-tabs_28ejd > [data-test=tab-option]').click()
         cy.get('[data-test=add-proposal] > .button-text').click()
@@ -14,7 +14,7 @@ describe('LOI Preview Tests', () => {
         cy.contains('Please select a template to see an LOI preview')
         cy.get('.u-width-full > .u-relative > .react-dropdown > .loi_template_id__control > .loi_template_id__value-container') 
         cy.get('[data-test=profile-back]').click()   })
-    it('Opening an LOI and selecting a template', () => {
+    it('Opening a proposal and selecting a template', () => {
         cy.visit("https://acceptance.vts.com/lease/deals/2567961")
         cy.get('[data-test=deal-profile-tabs] > .Tabs-tabs_28ejd > [data-test=tab-option]').click()
         cy.get('[data-test=add-proposal] > .button-text').click()
@@ -23,13 +23,13 @@ describe('LOI Preview Tests', () => {
         cy.contains('Global Template').click()
         cy.wait(3000)
         cy.contains('generation date') })
-    it('Opening an LOI with a selected template', () => {
+    it('Opening a proposal with a selected template', () => {
         cy.visit("https://acceptance.vts.com/lease/deals/2568234")
         cy.get('[data-test=add-proposal] > .button-text').click()
         cy.get('.u-p-lg-horz > .Tabs-tabs_28ejd > [data-test=tab-option]').click()
         cy.wait(3000)
         cy.contains('Six (6)') })
-    it('Opening an LOI with no template selected & selecting one via Info tab', () => {
+    it('Opening a proposal with no template selected & selecting one via Info tab', () => {
         cy.visit("https://acceptance.vts.com/lease/deals/2567961")
         cy.get('[data-test=deal-profile-tabs] > .Tabs-tabs_28ejd > [data-test=tab-option]').click()
         cy.get('[data-test=add-proposal] > .button-text').click()
