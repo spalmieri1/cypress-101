@@ -5,7 +5,7 @@ describe('New Proposal Tests', () => {
     beforeEach(() => {
         cy.login('super-beta@vts.com', 'Creinsights1')
     })
-    it('Creating a proposal with 20 fields', () => {
+    it('Creating a proposal with 20 fields populated', () => {
         cy.visit("https://acceptance.vts.com/lease/deals/2568326")
         cy.get('[data-test=deal-profile-tabs] > .Tabs-tabs_28ejd > [data-test=tab-option]').click()
         cy.get('[data-test=add-proposal] > .button-text').click()
@@ -43,7 +43,7 @@ describe('New Proposal Tests', () => {
         cy.get('.proposal-card-actions-container > .overflow-menu > [data-test=overflow-menu-trigger]').click()
         cy.get('.-type-warning').click()
     })
-    it.only('Create proposal a proposal with over 20 fields', () => {
+    it('Create proposal a proposal with over 20 fields populated', () => {
         cy.visit("https://acceptance.vts.com/lease/deals/2568327")
         cy.get('[data-test=deal-profile-tabs] > .Tabs-tabs_28ejd > [data-test=tab-option]').click()
         cy.get('[data-test=add-proposal] > .button-text').click()
@@ -64,6 +64,17 @@ describe('New Proposal Tests', () => {
         cy.get('[data-test=other-revenue] > .u-p-vert-lg > :nth-child(1) > .u-flex-justify-between > .gr-16 > div.u-flex > .u-no-p-right > .vts-input > .form-control-container > .u-no-border-right').type('5.4') // Other income amount
         cy.get('.u-p-top-xl > :nth-child(1) > .u-flex > .gr-16 > .vts-input > .form-control-container > .form-control').type('585000') // Percentage rent annual sales
         cy.get('[data-test=stepped_percentage_rent_fields] > :nth-child(2) > .u-p-top-lg.row > :nth-child(1) > .u-flex > .gr-16 > .vts-input > .form-control-container > .form-control').type('8.8') // Percentage rent annual sales growth
+        cy.get('[data-test=add_another_reimbursable_expense] > .button-text').click()
+        cy.get('.deal_terms_attributes_0__reimbursable_expenses_attributes_2__type__value-container').click()
+        cy.contains('Insurance').click()
+        cy.get('.deal_terms_attributes_0__reimbursable_expenses_attributes_2__recovery_method__value-container').click()
+        cy.contains('Modified Gross').click()
+        cy.get('.deal_terms_attributes_0__reimbursable_expenses_attributes_2__base_year__value-container').click()
+        cy.contains('2021/2022').click()
+        cy.get(':nth-child(3) > :nth-child(1) > [data-test=expense-or-recovery] > :nth-child(4) > :nth-child(1) > .u-flex > .gr-16 > .vts-input > .form-control-container > .form-control').type('5.50') // Expense amount
+        cy.get(':nth-child(5) > :nth-child(1) > .u-flex > .gr-16 > .vts-input > .form-control-container > .form-control').type('2.55') // Expense stop
+        cy.get('[data-test=add_first_cost] > .Icon-icon_3HmFe').click()
+        cy.get('[data-test=cost] > :nth-child(3) > :nth-child(1) > .u-flex-justify-between > .gr-16 > div.u-flex > .u-no-p-right > .vts-input > .form-control-container > .u-no-border-right').type('25.50') // TI amount
         cy.get('[data-test=commission] > :nth-child(2) > :nth-child(1) > .u-flex > .gr-16 > .vts-input > .form-control-container > .form-control').type('JLL') // Commissions broker
         cy.get(':nth-child(3) > :nth-child(1) > .u-flex > .gr-16 > .form-control-container > .form-control').type('06/01/2022') // Commissions date
         cy.get('[data-test=add_first_remaining_lease_obligation]').click()
@@ -73,9 +84,18 @@ describe('New Proposal Tests', () => {
         cy.get('.u-border-bottom > .u-flex > .u-flex-expand-left > [data-test=button]').click()
         cy.get('.u-border-bottom > .u-p-top-xl > :nth-child(1) > .u-flex > .gr-16 > .vts-input > .form-control-container > .form-control').type('89000') // Straight line balance
         cy.get('[aria-controls="options_and_more"]').click()
+        cy.get('[data-test=select-option-or-right-type] > .Icon-icon_3HmFe').click()
+        cy.get('.option_type__value-container').type('renewal')
+        cy.get('[data-test=dropdownOption-Renewal]').click()
+        cy.get('.clause__value-container').click()
+        cy.contains('Blank clause').click()
+        cy.get('[data-test=add-option-or-right]').click()
+        cy.get(':nth-child(3) > :nth-child(1) > .u-flex > .gr-16 > .vts-input > .form-control-container > .form-control').type('6') // Number of renewal options
+        cy.get(':nth-child(4) > :nth-child(1) > .u-flex > .gr-16 > .vts-input > .form-control-container > .form-control').type('12') // Renewal option term
+        cy.get(':nth-child(6) > :nth-child(1) > .u-flex > .gr-16 > .vts-input > .form-control-container > .form-control').type('Renewal option rate note') // Renewal rate note        
         cy.get('[data-test=add-tenant-risk] > .Icon-icon_3HmFe').click()
         cy.contains('Letter of credit').click()
-        cy.get('.gr-16 > .vts-input > .form-control-container > .form-control').type('6500.50') // Tenant risk amount
+        cy.get('.u-p-vert-lg > :nth-child(1) > .u-flex > .gr-16 > .vts-input > .form-control-container > .form-control').type('6500.50') // Tenant risk amount
         cy.get('.u-p-bottom-lg > :nth-child(1) > .u-flex > .gr-16 > .form-control').type('This is my letter of credit test description') // Tenant risk description
         cy.get('[data-test=submit-button] > .button-text').click()
         cy.get('.proposal-card-actions-container > .overflow-menu > [data-test=overflow-menu-trigger]').click()
