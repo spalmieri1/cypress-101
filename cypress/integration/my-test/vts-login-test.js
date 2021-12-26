@@ -24,7 +24,7 @@ describe('VTS login test', () => {
     it('LoginTest', () => {
         cy.visit("https://acceptance.vts.com")
         cy.get('#user_email').type('super-beta@vts.com')
-        cy.get('#user_password').type('P0t@t0th3D0g')
+        cy.get('#user_password').type('Creinsights1')
         cy.get('.btn-primary').click()
         cy.get('.u-m-top').contains('Deals')
     })

@@ -1,9 +1,9 @@
 /// <reference types="cypress" />
 
-describe('LOI Preview Tests', () => {
+describe('Blended Budget Tests', () => {
 
     beforeEach(() => {
-        cy.login('super-beta@vts.com', 'P0t@t0th3D0g')
+        cy.login('super-beta@vts.com', 'Creinsights1')
     })
 
     it('Opening a deal and seeing the select budget button', () => {

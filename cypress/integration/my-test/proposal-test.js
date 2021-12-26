@@ -3,7 +3,7 @@
 describe('Proposal Test', () => {
 
     it('Proposal', () => {
-        cy.login('super-beta@vts.com', 'P0t@t0th3D0g')
+        cy.login('super-beta@vts.com', 'Creinsights1')
         cy.visit('https://acceptance.vts.com/lease/deals/2568249')
         cy.get('[data-test=deal-profile-tabs] > .Tabs-tabs_28ejd > [data-test=tab-option]').click()
         cy.get('[data-test=add-proposal] > .button-text').click()

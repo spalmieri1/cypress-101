@@ -3,7 +3,7 @@
 describe('LOI Preview Tests', () => {
 
     beforeEach(() => {
-        cy.login('super-beta@vts.com', 'P0t@t0th3D0g')
+        cy.login('super-beta@vts.com', 'Creinsights1')
     })
 
     it('Opening a proposal with no template selected', () => {
