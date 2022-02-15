@@ -1,16 +1,4 @@
 /// <reference types="cypress" />
-
-//describe 
-
-// -> context 
-//    -> it
-
-
-// before
-// beforeEach
-// after
-// afterEach
-
 describe('VTS login test', () => {
 
     before(() => {
